@@ -1,14 +1,13 @@
-clear;
-close all;
-clc;
-
 % Aidan Clark, ME8604, amhclark@mun.ca
 % Memorial University of Newfoundland
 % Faculty of Engineering & Applied Science
 
+clear;
+close all;
+clc;
+
 F = [1 -90 -4844 189240];       % Coefficients of cubic equation from big to small
 roots(F)                        % Solve the roots of the equation
-
 
 % Solve Graphically
 j = 1;
@@ -23,4 +22,3 @@ end
 plot(xt,RT)
 xline(0);
 yline(0);
-
