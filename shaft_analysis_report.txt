@@ -1,0 +1,39 @@
+Shaft Analysis Report:
+
+Geometry:
+  Radius: 0.0200 m
+  Length: 2.0000 m
+
+Material Properties:
+  Yield Strength: 163.0000 Pa
+  Critical Fracture Toughness (Mode I): 52.0000 Pa.m^0.5
+  Critical Fracture Toughness (Mode II): 52.0000 Pa.m^0.5
+  Critical Fracture Toughness (Mode III): 52.0000 Pa.m^0.5
+
+Design Constraints:
+  Safety Factor Against Yielding: 4.0000
+  Safety Factor Against Fracture (Mode I): 6.0000
+  Safety Factor Against Fracture (Mode II): 4.0000
+  Safety Factor Against Fracture (Mode III): 5.0000
+
+Loading Conditions:
+  Torque: 15.0000 N.m
+  Axial Force: 500.0000 N
+  Bending Moment: 123.0000 N.m
+
+Loading Option: 1 (1 for Maximum Shear, 2 for Octahedral)
+
+Results:
+  Three-Dimensional Stresses:
+    Shear Stress: 23873.2415 Pa
+    Axial Stress: 397887.3577 Pa
+    Bending Stress: 9788029.0002 Pa
+
+  Principal Stresses:
+    Sigma1: 23873.2415 Pa
+    Sigma2: 397887.3577 Pa
+    Sigma3: 9788029.0002 Pa
+
+  Effective Stress: 9796141.8931 Pa
+
+  Safety Factor: 8.6667
