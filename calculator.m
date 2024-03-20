@@ -1,3 +1,12 @@
+%% Fatigue & Fracture Mechanics
+%   Term Project
+%   Aidan Clark & Patrick Cleary
+
+clear
+close all
+clc
+format shortEng
+
 
 %% Input
 % Prompt user for input
@@ -5,18 +14,19 @@ disp('Enter the following parameters:')
 % Geometry
 radius = input('Shaft Radius (m): ');
 length = input('Shaft Length (m): ');
+a = input('Snap Ring Depth (m)');
 
 % Material Properties
-yield_strength = input('Material Yield Strength (Pa): ');
-k_Ic = input('Critical Fracture Toughness Mode I (Pa.m^(1/2)): ');
-k_IIc = input('Critical Fracture Toughness Mode II (Pa.m^(1/2)): ');
-k_IIIc = input('Critical Fracture Toughness Mode III (Pa.m^(1/2)): ');
+yield_strength_MPa = input('Material Yield Strength (MPa): ');
+k_Ic_MPa    = input('Critical Fracture Toughness Mode I (MPa.m^(1/2)): ');
+% k_IIc_MPa   = input('Critical Fracture Toughness Mode II (MPa.m^(1/2)): ');
+k_IIIc_MPa  = input('Critical Fracture Toughness Mode III (MPa.m^(1/2)): ');
 
 % Design Constraints
-safety_factor_yielding = input('Safety Factor against Yielding: ');
-safety_factor_fracture_I = input('Safety Factor against Fracture Mode I: ');
-safety_factor_fracture_II = input('Safety Factor against Fracture Mode II: ');
-safety_factor_fracture_III = input('Safety Factor against Fracture Mode III: ');
+safety_factor_yielding      = input('Safety Factor against Yielding: ');
+safety_factor_fracture_I    = input('Safety Factor against Fracture Mode I: ');
+% safety_factor_fracture_II   = input('Safety Factor against Fracture Mode II: ');
+safety_factor_fracture_III  = input('Safety Factor against Fracture Mode III: ');
 
 % Loading Conditions
 torque = input('Applied Torque (N.m): ');
@@ -25,6 +35,13 @@ bending_moment = input('Bending Moment (N.m): ');
 
 % Comparison Option
 stress_analysis_type = input('Select Comparison Option (1 for Maximum Shear, 2 for Octahedral): ');
+
+% Input Data Unit Conversion
+yield_strength = 10e-6 * yield_strength_MPa;
+k_Ic = k_Ic_MPa * 10e-6;
+k_IIc = k_IIc_MPa * 10e-6;
+k_IIIc = k_IIIc_MPa * 10e-6;
+
 
 %% Calculations
 
@@ -42,8 +59,10 @@ normal_stress_axial = axial_force / area;
 bending_stress = bending_moment * radius / polar_moment_of_inertia;
 
 % Principal Stress
-sigma_1, sigma_2 = 0.5*();
-principal_stresses = [];
+sigma_1 = 0.5*(normal_stress_axial + bending_stress) + sqrt((0.5*(normal_stress_axial-bending_moment))^2 + tau_xy^2);
+sigma_2 = 0.5*(normal_stress_axial + bending_stress) - sqrt((0.5*(normal_stress_axial-bending_moment))^2 + tau_xy^2);
+
+principal_stresses = [sigma_1, sigma_2];
 
 % Effective stress based on user's choice
 if stress_analysis_type == 1
@@ -57,7 +76,7 @@ else
 end
 
 % Safety Factor against yielding
-safety_factor_yielding_actual = yield_strength / abs(min(principal_stresses));
+safety_factor_yielding_actual = yield_strength / abs(max(principal_stresses));
 
 % Safety Factors against fracture
 safety_factor_fracture_I_actual = k_Ic / abs(min(principal_stresses));

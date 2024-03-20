@@ -1,9 +1,9 @@
 ----- Fracture Toughness Comparison -----
 Fracture Toughness Values (Pa.m^(1/2)):
-12.000000
-23.000000
-15.000000
+20.000000
+30.000000
+40.000000
 Critical Stresses for Fracture (Pa):
-9827.817736
-18836.650661
-12284.772170
+142539179.369616
+213808769.054425
+285078358.739233
