@@ -95,6 +95,10 @@ safety_factor = safety_factor_yielding/effective_stress;
 Alpha = a/radius;
 Beta = 1 - Alpha;
 
+% LEFM Check
+LHS = 2.5*(k/yield_strength_MPa);
+
+
 % Fracture Mechanics
 s_g_axial = axial_force/(pi*radius^2);
 F_axial = (1/2*Beta^1.5)*(1 + 0.5*Beta + (3/8)*Beta^2 - 0.363*Beta^3 + 0.731*Beta^4);
@@ -119,9 +123,9 @@ safety_factor_fracture_III = k_IIIc / k_III;
 
 torsion_yield = yield_strength/sqrt(3); %Torsional Yield wrt Octahedral Stress relationship
 
-plastic_force = yield_strength*pi*(1-Alpha)^2;
+plastic_force = yield_strength*pi*r^2*(1-Alpha)^2;
 plastic_moment = (4/3)*radius^3*yield_strength*(1-Alpha)^3; 
-plastic_torque = (2/3)*pi*radius^3*(1-Alpha)^3;
+plastic_torque = (2/3)*pi*radius^3*(1-Alpha)^3*torsion_yield;
 
 plastic_force_fos = plastic_force/axial_force;
 plastic_moment_fos = plastic_moment/bending_moment;
