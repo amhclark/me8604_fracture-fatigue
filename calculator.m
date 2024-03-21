@@ -157,7 +157,6 @@ fprintf(output_file_part_I, 'Yield Strength (MPa) %f\n', yield_strength_MPa);
 fprintf(output_file_part_I, 'Torque (Nm) %f\n', torque);
 fprintf(output_file_part_I, 'Axial Force (N) %f\n', axial_force);
 fprintf(output_file_part_I, 'Bending Moment (N/m) %f\n', bending_moment);
-
 fprintf(output_file_part_I, '----- Results -----\n');
 fprintf(output_file_part_I, 'Principal Stresses (Pa):\n');
 fprintf(output_file_part_I, '%f\n', principal_stresses);
@@ -178,9 +177,15 @@ fprintf(output_file_part_II, 'Safety Factor Yielding %f\n', safety_factor_yieldi
 fprintf(output_file_part_II, 'Safety Factor Fracture I %f\n', safety_factor_fracture_I);
 fprintf(output_file_part_II, 'Safety Factor Fracture III %f\n', safety_factor_fracture_III);
 fprintf(output_file_part_II, '----- Results -----\n');
-
-
-% fprintf(output_file_part_I, 'Safety Factor against Yielding: %f\n', safety_factor_yielding_actual);
-% fprintf(output_file_part_I, 'Safety Factor against Fracture Mode I: %f\n', safety_factor_fracture_I);
-% fprintf(output_file_part_I, 'Safety Factor against Fracture Mode III: %f\n', safety_factor_fracture_III);
-
+fprintf(output_file_part_II, 'Fracture Toughness (Axial): %f\n', k_axial);
+fprintf(output_file_part_II, 'Fracture Toughness (Bending): %f\n', k_bending);
+fprintf(output_file_part_II, 'Fracture Toughness (Torsion): %f\n', k_torsion);
+fprintf(output_file_part_II, 'Fracture Toughness (Mode I): %f\n', k_I);
+fprintf(output_file_part_II, 'Fracture Toughness (Mode III): %f\n', k_III);
+fprintf(output_file_part_II, 'Torsion Yield Strength: %f\n', torsion_yield);
+fprintf(output_file_part_II, 'Plastic Stress (Axial): %f\n', plastic_force);
+fprintf(output_file_part_II, 'Plastic Stress (Bending): %f\n', plastic_moment);
+fprintf(output_file_part_II, 'Plastic Stress (Torsion): %f\n', plastic_torque);
+fprintf(output_file_part_II, 'Plastic Yield FOS (Axial): %f\n', plastic_force_fos);
+fprintf(output_file_part_II, 'Plastic Yield FOS (Bending): %f\n', plastic_moment_fos);
+fprintf(output_file_part_II, 'Plastic Yield FOS (Torsion): %f\n', plastic_torque_fos);
