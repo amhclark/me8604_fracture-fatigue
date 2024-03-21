@@ -1,9 +1,0 @@
------ Results -----
-Principal Stresses (Pa):
-183410168.755615
--142539179.369616
-Effective Stress (Pa): 183410168.755615
-Safety Factor against Yielding: 0.000000
-Safety Factor against Fracture Mode I: 0.000000
-Safety Factor against Fracture Mode II: 0.000000
-Safety Factor against Fracture Mode III: 0.000000

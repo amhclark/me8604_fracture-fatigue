@@ -1,0 +1,14 @@
+----- User Input -----
+Radius (m) 1.000000
+Length (m) 1.000000
+Yield Strength (MPa) 1.000000
+Torque (Nm) 1.000000
+Axial Force (N) 1.000000
+Bending Moment (N/m) 1.000000
+----- Results -----
+Principal Stresses (Pa):
+0.000000
+0.318310
+1.273240
+Effective Stress (Pa): 1.273240
+Safety Factor: 0.785398
