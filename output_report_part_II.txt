@@ -1,6 +1,0 @@
-Snap Ring Depth (m) 1.000000
-Fracture Toughness I 1.000000
-Fracture Toughness III 1.000000
-Safety Factor Yielding 1.000000
-Safety Factor Fracture I 0.000000
-Safety Factor Fracture III 0.000000

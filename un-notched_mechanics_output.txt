@@ -1,0 +1,15 @@
+----- User Input -----
+Radius (m) 0.050
+Length (m) 0.200
+Yield Strength (MPa) 540.000
+Torque (Nm) 1000.000
+Axial Force (N) 60000.000
+Bending Moment (N/m) 800.000
+----- Results -----
+Principal Stresses (MPa):
+139.255
+0.000
+18.626
+Effective Stress (MPa): 139.255
+Safety Factor: 3.878
+Is the yield FOS safe/unsafe compared with design values: Safe

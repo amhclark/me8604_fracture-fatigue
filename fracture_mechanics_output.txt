@@ -1,0 +1,27 @@
+----- User Input -----
+Snap Ring Depth (m): 0.005
+Fracture Toughness I 66.000
+Fracture Toughness III 45.000
+Safety Factor Yielding 2.000
+Safety Factor Fracture I 3.000
+Safety Factor Fracture III 3.000
+----- Results -----
+LEFM Valid: True
+Plane Strain Valid: True
+Fracture Toughness (Axial) 8.047
+Fracture Toughness (Bending) 12.351
+Fracture Toughness (Torsion) 7.719
+Fracture Toughness (Mode I) 20.398
+Fracture Toughness (Mode III) 7.719
+Torsion Yield Strength 3117691453.624
+Plastic Stress (Axial) 34353315.667
+Plastic Stress (Bending) 656100.000
+Plastic Stress (Torsion) 595016.881
+Fracture FOS (Axial) 8.202
+Fracture FOS (Bending) 5.344
+Fracture FOS (Torsion) 5.830
+Plastic Yield FOS (Axial) 572.555
+Plastic Yield FOS (Bending) 820.125
+Plastic Yield FOS (Torsion) 595.017
+Is the Mode I Fracture FOS safe/unsafe compared with design value: Safe
+Is the Mode III Fracture FOS safe/unsafe compared with design value: Safe
