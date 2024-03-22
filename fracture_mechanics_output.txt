@@ -1,27 +1,36 @@
 ----- User Input -----
+Radius (m) 0.050
+Length (m) 0.200
+Yield Strength (MPa) 540.000
+Torque (Nm) 1000.000
+Axial Force (N) 60000.000
+Bending Moment (N/m) 800.000
 Snap Ring Depth (m): 0.005
-Fracture Toughness I 66.000
-Fracture Toughness III 45.000
-Safety Factor Yielding 2.000
-Safety Factor Fracture I 3.000
-Safety Factor Fracture III 3.000
+Fracture Toughness I (MPa√m): 66.000
+Fracture Toughness III (MPa√m): 45.000
+Safety Factor Yielding (Design): 2.000
+Safety Factor Fracture I (Design): 3.000
+Safety Factor Fracture III (Design): 3.000
+ 
 ----- Results -----
 LEFM Valid: True
 Plane Strain Valid: True
-Fracture Toughness (Axial) 8.047
-Fracture Toughness (Bending) 12.351
-Fracture Toughness (Torsion) 7.719
-Fracture Toughness (Mode I) 20.398
-Fracture Toughness (Mode III) 7.719
-Torsion Yield Strength 3117691453.624
-Plastic Stress (Axial) 34353315.667
-Plastic Stress (Bending) 656100.000
-Plastic Stress (Torsion) 595016.881
-Fracture FOS (Axial) 8.202
-Fracture FOS (Bending) 5.344
-Fracture FOS (Torsion) 5.830
-Plastic Yield FOS (Axial) 572.555
-Plastic Yield FOS (Bending) 820.125
-Plastic Yield FOS (Torsion) 595.017
+Fracture Toughness, Axial (MPa√m): 1.104
+Fracture Toughness, Bending (MPa√m): 1.235
+Fracture Toughness, Torsion (MPa√m): 0.711
+Fracture Toughness, Mode I (MPa√m): 2.339
+Fracture Toughness, Mode III (MPa√m): 0.711
+Torsion Yield Strength (MPa): 311.769
+Plastic Force, Axial (N): 3435331.567
+Plastic Force, Bending (Nm): 65610.000
+Plastic Force, Torsion (Nm): 59501.688
+Fracture FOS (Axial): 59.790
+Fracture FOS (Bending): 53.439
+Fracture FOS (Torsion): 63.256
+Fracture FOS (Mode I): 28.218
+Fracture FOS (Mode III): 63.256
+Plastic Yield FOS (Axial): 57.256
+Plastic Yield FOS (Bending): 82.013
+Plastic Yield FOS (Torsion): 59.502
 Is the Mode I Fracture FOS safe/unsafe compared with design value: Safe
 Is the Mode III Fracture FOS safe/unsafe compared with design value: Safe

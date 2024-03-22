@@ -31,3 +31,12 @@ Where the following variables represent the above user inputs:
 - L = shaft length
 
 Once all required user inputs have been added, the MATLAB script will output two text files, one of which displays mechanical properties of an un-notched shaft, while the second displays fracture mechanics of a shaft with a snap ring groove. For troubleshooting purposes, the output text files also include the input parameters, so you can assure you inputted the correct values as a first step, if the outputs seem incorrect.
+
+The below images show the .txt files which are generated following the completion of the MATLAB script running. The top image is the un-notched specimen report, while the bottom image is the fracture mechanics report.
+
+<p float="left">
+    <img src = "./Figures/mechanics_report.png" width="500"/>
+    <img src="./Figures/fracture_report.png" width="600"/>
+</p>
+
+Additional background information and theory can be found in the document "ME6604_TermProject.pdf"

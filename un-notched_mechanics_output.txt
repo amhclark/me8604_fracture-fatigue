@@ -5,11 +5,13 @@ Yield Strength (MPa) 540.000
 Torque (Nm) 1000.000
 Axial Force (N) 60000.000
 Bending Moment (N/m) 800.000
+ 
 ----- Results -----
 Principal Stresses (MPa):
-139.255
+17.288
+-1.500
 0.000
-18.626
-Effective Stress (MPa): 139.255
-Safety Factor: 3.878
+Stress Analysis Type (1 = Max Shear, 2 = Octahedral): 2
+Effective Stress (MPa): 18.085
+Safety Factor: 29.858
 Is the yield FOS safe/unsafe compared with design values: Safe
