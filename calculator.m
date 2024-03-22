@@ -16,14 +16,14 @@ length = input('Shaft Length (m): ');
 a = input('Snap Ring Depth (m)');
 
 % Material Properties Input
-yield_strength_MPa = input('Material Yield Strength (MPa): ');
-k_Ic_MPa    = input('Critical Fracture Toughness Mode I (MPa.m^(1/2)): ');
-k_IIIc_MPa  = input('Critical Fracture Toughness Mode III (MPa.m^(1/2)): ');
+yield_strength_MPa  = input('Material Yield Strength (MPa): ');
+k_Ic_MPa            = input('Critical Fracture Toughness Mode I (MPa.m^(1/2)): ');
+k_IIIc_MPa          = input('Critical Fracture Toughness Mode III (MPa.m^(1/2)): ');
 
 % Design Constraints
-safety_factor_yielding      = input('Safety Factor against Yielding: ');
-safety_factor_fracture_I    = input('Safety Factor against Fracture Mode I: ');
-safety_factor_fracture_III  = input('Safety Factor against Fracture Mode III: ');
+safety_factor_yielding_design             = input('Safety Factor against Yielding: ');
+safety_factor_fracture_I_design    = input('Safety Factor against Fracture Mode I: ');
+safety_factor_fracture_III_design  = input('Safety Factor against Fracture Mode III: ');
 
 % Loading Conditions
 torque = input('Applied Torque (N.m): ');
@@ -85,7 +85,7 @@ else
 end
 
 % Safety Factor Based
-safety_factor = safety_factor_yielding/effective_stress;
+safety_factor = yield_strength/effective_stress;
 
 %% Part II Calculations
 
@@ -132,6 +132,9 @@ else
 end
 
 % Safety Factors against fracture
+safety_factor_fracture_axial = k_Ic / k_axial;
+safety_factor_fracture_bending = k_Ic / k_bending;
+safety_factor_fracture_torsion = k_IIIc / k_torsion;
 safety_factor_fracture_I = k_Ic / k_I;
 safety_factor_fracture_III = k_IIIc / k_III;
 
@@ -148,6 +151,28 @@ plastic_force_fos = plastic_force/axial_force;
 plastic_moment_fos = plastic_moment/bending_moment;
 plastic_torque_fos = plastic_torque/torque;
 
+%% FOS Comparisons (actual vs design)
+
+% Yielding Comparison
+if safety_factor >= safety_factor_yielding_design
+    yield_comparison = 'Safe';
+else
+    yield_comparison = 'Unsafe';
+end
+
+% Mode I Fracture Comparison
+if safety_factor_fracture_I >= safety_factor_fracture_I_design
+    FOS_modeI_comparison = 'Safe';
+else
+    FOS_modeI_comparison = 'Unsafe';
+end
+
+% Mode III Fracture Comparison
+if safety_factor_fracture_III >= safety_factor_fracture_III_design
+    FOS_modeIII_comparison = 'Safe';
+else
+    FOS_modeIII_comparison = 'Unsafe';
+end
 
 %% Result Output
 
@@ -181,6 +206,7 @@ fprintf(output_file_part_I, 'Principal Stresses (Pa):\n');
 fprintf(output_file_part_I, '%f\n', principal_stresses);
 fprintf(output_file_part_I, 'Effective Stress (Pa): %f\n', effective_stress);
 fprintf(output_file_part_I, 'Safety Factor: %f\n', safety_factor);
+fprintf(output_file_part_I, 'Is the yield FOS safe/unsafe compared with design values: %f\n:', yield_comparison);
 fclose(output_file_part_I);
 disp('Report of Un-Notched Shaft Analysis (Part I) saved as: un-notched_mechanics_output.txt')
 
@@ -191,8 +217,8 @@ fprintf(output_file_part_II, 'Snap Ring Depth (m) %f\n', a);
 fprintf(output_file_part_II, 'Fracture Toughness I %f\n', k_Ic_MPa);
 fprintf(output_file_part_II, 'Fracture Toughness III %f\n', k_IIIc_MPa);
 fprintf(output_file_part_II, 'Safety Factor Yielding %f\n', safety_factor_yielding);
-fprintf(output_file_part_II, 'Safety Factor Fracture I %f\n', safety_factor_fracture_I);
-fprintf(output_file_part_II, 'Safety Factor Fracture III %f\n', safety_factor_fracture_III);
+fprintf(output_file_part_II, 'Safety Factor Fracture I %f\n', safety_factor_fracture_I_design);
+fprintf(output_file_part_II, 'Safety Factor Fracture III %f\n', safety_factor_fracture_III_design);
 fprintf(output_file_part_II, '----- Results -----\n');
 fprintf(output_file_part_II, 'LEFM Valid: %f\n', LEFM_valid);
 fprintf(output_file_part_II, 'Plane Strain Valid: %f\n', PS_valid);
@@ -205,8 +231,14 @@ fprintf(output_file_part_II, 'Torsion Yield Strength: %f\n', torsion_yield);
 fprintf(output_file_part_II, 'Plastic Stress (Axial): %f\n', plastic_force);
 fprintf(output_file_part_II, 'Plastic Stress (Bending): %f\n', plastic_moment);
 fprintf(output_file_part_II, 'Plastic Stress (Torsion): %f\n', plastic_torque);
+fprintf(output_file_part_II, 'Fracture FOS (Axial): %f\n', safety_factor_fracture_axial);
+fprintf(output_file_part_II, 'Fracture FOS (Bending): %f\n', safety_factor_fracture_bending);
+fprintf(output_file_part_II, 'Fracture FOS (Torsion): %f\n', safety_factor_fracture_torsion);
 fprintf(output_file_part_II, 'Plastic Yield FOS (Axial): %f\n', plastic_force_fos);
 fprintf(output_file_part_II, 'Plastic Yield FOS (Bending): %f\n', plastic_moment_fos);
 fprintf(output_file_part_II, 'Plastic Yield FOS (Torsion): %f\n', plastic_torque_fos);
+fprintf(output_file_part_II, 'Is the Mode I Fracture FOS safe/unsafe compared with design value: %f\n', FOS_modeI_comparison);
+fprintf(output_file_part_II, 'Is the Mode III Fracture FOS safe/unsafe compared with design value: %f\n', FOS_modeIII_comparison);
+
 fclose(output_file_part_II);
 disp('Report of Fracture Analysis (Part II) saved as: fracture_mechanics_output.txt')
